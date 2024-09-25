@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "ifeelweird:item/sand_ocean_music_disc"
+  }
+}

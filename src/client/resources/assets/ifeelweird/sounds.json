@@ -1,0 +1,21 @@
+{
+  "pharaohs_curse": {
+    "sounds": [
+      "ifeelweird:pharaohs_curse"
+    ]
+  },
+  "aaaaa": {
+    "sounds": [
+      "ifeelweird:aaaaa"
+    ]
+  },
+  "sand_ocean": {
+    "sounds": [
+      {
+        "name": "ifeelweird:sand_ocean",
+        "stream": true
+      }
+
+    ]
+  }
+}
