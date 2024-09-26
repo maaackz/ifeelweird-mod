@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "ifeelweird:pyramid",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 1141815106,
+    "frequency": 0.125,
+    "spacing": 20,
+    "separation": 5
+  }
+}
