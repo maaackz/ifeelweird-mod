@@ -17,5 +17,15 @@
       }
 
     ]
+  },
+  "ihate": {
+    "sounds": [
+        "ifeelweird:ihate"
+    ]
+  },
+  "iluv": {
+    "sounds": [
+      "ifeelweird:iluv"
+    ]
   }
 }

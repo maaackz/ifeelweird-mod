@@ -7,7 +7,9 @@
 		"ExampleMixin",
 		"ServerMixin",
 		"HoldingSlabMixin",
-		"FallMixin"
+		"FallMixin",
+		"ComposterPoopMixin",
+		"PoopingMixin"
 	],
 	"client": [],
 	"injectors": {

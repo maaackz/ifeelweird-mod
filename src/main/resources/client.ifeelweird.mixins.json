@@ -7,7 +7,7 @@
 	"mixins": [
 
 	],
-	"client": ["CheckBiomeMixin"],
+	"client": ["CheckBiomeMixin","MultiplayerScreenMixin"],
 	"injectors": {
 		"defaultRequire": 1
 	}
