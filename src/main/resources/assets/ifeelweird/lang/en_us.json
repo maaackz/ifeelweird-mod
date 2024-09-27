@@ -1,6 +1,10 @@
 {
   "itemgroup.ifeelweird": "ifeelweird",
 
+  "item.ifeelweird.banana": "Banana",
+  "item.ifeelweird.golden_banana": "Golden Banana",
+  "item.ifeelweird.enchanted_golden_banana": "Enchanted Golden Banana",
+
   "item.ifeelweird.sand_ocean_music_disc": "§bMusic Disc",
   "item.ifeelweird.sand_ocean_music_disc.desc": "Banjo Kazooie - Sand Ocean"
 

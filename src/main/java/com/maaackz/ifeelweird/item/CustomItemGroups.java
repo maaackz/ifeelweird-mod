@@ -28,6 +28,12 @@ public class CustomItemGroups {
             content.addAfter(Items.MUSIC_DISC_RELIC, CustomItems.SAND_OCEAN_MUSIC_DISC);
 
         });
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(content -> {
+
+//            content.addAfter(Items.GOLDEN_APPLE, CustomItems.SAND_OCEAN_MUSIC_DISC);
+
+        });
     }
 
     public static void registerItemGroups() {

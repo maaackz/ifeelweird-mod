@@ -22,6 +22,9 @@ public class CustomModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(CustomItems.SAND_OCEAN_MUSIC_DISC, Models.GENERATED);
 
+        itemModelGenerator.register(CustomItems.BANANA, Models.GENERATED);
+        itemModelGenerator.register(CustomItems.GOLDEN_BANANA, Models.GENERATED);
+//        itemModelGenerator.register(CustomItems.ENCHANTED_GOLDEN_BANANA, Models.GENERATED);
 
     }
 }
