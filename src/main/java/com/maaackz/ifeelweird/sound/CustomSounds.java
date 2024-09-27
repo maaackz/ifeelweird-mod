@@ -13,6 +13,8 @@ public class CustomSounds {
     public static final SoundEvent SAND_OCEAN = registerSoundEvent("sand_ocean");
     public static final SoundEvent I_LUV = registerSoundEvent("iluv");
     public static final SoundEvent I_HATE = registerSoundEvent("ihate");
+    public static final SoundEvent BALLSACKS_IN_MY_MOUTH = registerSoundEvent("ballsacksinmymouth");
+    public static final SoundEvent IT_WAS_MODDED = registerSoundEvent("itwasmodded");
 
     private static SoundEvent registerSoundEvent(String name) {
         Identifier id = new Identifier(ifeelweird.MOD_ID, name);

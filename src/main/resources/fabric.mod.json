@@ -9,7 +9,7 @@
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/maaackz/ifeelweird-mod/"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/ifeelweird/icon.png",
@@ -36,6 +36,26 @@
 		"fabric-api": "*"
 	},
 	"suggests": {
-		"another-mod": "*"
+		"modmenu": ">=7.2.0"
+	},
+	"recommends": {
+		"modmenu": ">=7.2.0"
+	},
+	"custom": {
+		"modmenu": {
+			"links": {
+				"modmenu.modrinth": "https://modrinth.com/mod/",
+				"modmenu.curseforge": "https://curseforge.com/minecraft/mc-mods/",
+				"modmenu.github_releases": "https://github.com/maaackz/ifeelweird-mod/releases",
+				"modmenu.discord": "https://discord.gg/"
+			}
+		},
+		"catalogue": {
+			"icon": {
+				"image": "ias_64.png",
+				"item": "minecraft:player_head"
+			},
+			"banner": "ias_240.png"
+		}
 	}
 }
