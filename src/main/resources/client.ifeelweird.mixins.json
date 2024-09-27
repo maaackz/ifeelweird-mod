@@ -10,7 +10,9 @@
 	"client": [
 		"CheckBiomeMixin",
 		"ScreenSoundsMixin",
-		"BumbleBeeMixin"
+		"BumbleBeeMixin",
+		"DogTerroristMixin",
+		"CatTerroristMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
