@@ -14,40 +14,43 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(AnimalEntity.class)
 public abstract class PoopingMixin extends PassiveEntity {
-    int poop_ticks;
-
-    void setRandomPoopTime()
-    {
-        //2 - 10 minutes
-        int seconds = random.nextBetween(2, 10) * 60; //1 minute = 60 seconds, 5 minutes = 3 * 60 seconds.
-
-        //Minecraft runs at 20 ticks per second.
-        this.poop_ticks = 20 * seconds;
-    }
-
+    private int poopTicks = setRandomPoopTime(); // Time until next poop
 
     protected PoopingMixin(EntityType<? extends PassiveEntity> entityType, World world) {
         super(entityType, world);
+        // Initialize poopTicks to avoid instant pooping upon spawn
         setRandomPoopTime();
     }
 
+    // Set a random time for pooping between 5 to 10 minutes (in ticks)
+    private int setRandomPoopTime() {
+        int seconds = this.random.nextBetween(300, 600); // 5 to 10 minutes in seconds
+        this.poopTicks = 20 * seconds; // Convert seconds to ticks (20 ticks per second)
+        return seconds * 20;
+    }
+
+    // Handle pooping in tickMovement like egg laying
     @Inject(method = "tickMovement()V", at = @At("TAIL"))
-    void shitty(CallbackInfo ci)
-    {
-        this.poop_ticks--;
-        if(this.poop_ticks <= 0)
-        {
-            setRandomPoopTime();
+    private void handlePooping(CallbackInfo ci) {
+        if (!this.getWorld().isClient && this.isAlive()) {
+            // Decrement poopTicks each tick, but only act when it reaches 0 or less
+            if (--this.poopTicks >= 0) {
+                // Reset poop timer
+                setRandomPoopTime();
 
-            for (int i = 0; i < random.nextBetween(0, 1); i++)
-                this.dropStack(CustomItems.SAND_OCEAN_MUSIC_DISC.getDefaultStack());
-            this.playSound(SoundEvents.ENTITY_CHICKEN_EGG, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
-            this.getWorld().addParticle(ParticleTypes.HEART, this.getPos().x, this.getPos().y, this.getPos().z, 0, -.2, 0);
-            this.getWorld().addParticle(ParticleTypes.HEART, this.getPos().x, this.getPos().y, this.getPos().z, -.2, -.2, 0);
-            this.getWorld().addParticle(ParticleTypes.HEART, this.getPos().x, this.getPos().y, this.getPos().z, +.2, -.2, 0);
-            this.getWorld().addParticle(ParticleTypes.HEART, this.getPos().x, this.getPos().y, this.getPos().z, 0, -.2, -.2);
-            this.getWorld().addParticle(ParticleTypes.HEART, this.getPos().x, this.getPos().y, this.getPos().z, 0, -.2, +.2);
+                // Drop poop item
+                this.dropItem(CustomItems.POOP.getDefaultStack().getItem());
 
+                // Play pooping sound
+                this.playSound(SoundEvents.ENTITY_CHICKEN_EGG, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
+
+                // Create poop particle effects
+                this.getWorld().addParticle(ParticleTypes.CLOUD, this.getPos().x, this.getPos().y, this.getPos().z, 0, -.2, 0);
+                this.getWorld().addParticle(ParticleTypes.CLOUD, this.getPos().x, this.getPos().y, this.getPos().z, -.2, -.2, 0);
+                this.getWorld().addParticle(ParticleTypes.CLOUD, this.getPos().x, this.getPos().y, this.getPos().z, +.2, -.2, 0);
+                this.getWorld().addParticle(ParticleTypes.CLOUD, this.getPos().x, this.getPos().y, this.getPos().z, 0, -.2, -.2);
+                this.getWorld().addParticle(ParticleTypes.CLOUD, this.getPos().x, this.getPos().y, this.getPos().z, 0, -.2, +.2);
+            }
         }
     }
 }
